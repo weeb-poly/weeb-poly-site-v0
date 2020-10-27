@@ -1,0 +1,7 @@
+# Site settings
+
+sass:
+  style: compressed
+
+# Build settings
+markdown: kramdown

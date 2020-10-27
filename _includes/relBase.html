@@ -1,0 +1,10 @@
+{% comment %}
+https://gist.github.com/Ketrel/1f36fca6b4148f7263b3ee8fdb0923e7
+https://redd.it/3nzvct
+{% endcomment %}
+
+{% assign _lvl = page.url | append: 'X' | split: '/' | size %}
+{% capture relBase %}{% for i in (3.._lvl) %}/..{% endfor %}{% endcapture %}
+{% assign relBase = relBase | slice: 1, relBase.size %}
+{% if relBase == '' %}{% assign relBase = '.' %}{% endif %}
+{% assign _lvl = nil %}

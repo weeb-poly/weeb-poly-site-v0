@@ -1,0 +1,51 @@
+---
+layout: compress
+---
+{% include relBase.html %}
+<!DOCTYPE html>
+
+<html lang="en">
+
+{% include head.html %}
+
+<body>
+
+    <!-- Server Include for Branded Header-->
+    <div id="rpi-min-header-2">
+        <div id="rpi-ribbon"></div>
+    </div>
+
+    <!--- Mega Menu V1 --->
+    <div id="rpi-mega-ribbon"></div>
+
+    <div id="rpi-mega-header">
+        <h1 class="rpi-title">Weeb Polytechnic Institute (WPI)</h1>
+        <a href="#maincontent" class="skip-main">Skip to main content</a>
+
+        {% include main/header.html %}
+
+        {% include main/menu.html %}
+    </div>
+
+    <div name="maincontent" id="maincontent"></div>
+
+    {% include bar/gray.html %}
+
+    {% include home/edm.html %}
+
+    {% include home/about.html %}
+
+    {% include home/research.html %}
+
+    {% include home/academics.html %}
+
+    {% include home/news.html %}
+
+    {% include home/events.html %}
+
+    {% include main/footer.html %}
+
+    {% include js.html %}
+</body>
+
+</html>
