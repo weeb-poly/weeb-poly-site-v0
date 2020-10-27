@@ -499,7 +499,7 @@ section#podcast {
 
 /*Podcast Slide END*/
 
-/*COVID Mag Slide START*/
+// COVID Mag Slide START
 #covid-mag {
     h2 {
         font-family: "Source Sans Pro", sans-serif;
@@ -515,7 +515,7 @@ section#podcast {
         text-shadow: 2px 2px 3px #000;
     }
 
-    section& {
+    section#{&} {
         overflow: hidden;
         position: relative;
         display: flex;
