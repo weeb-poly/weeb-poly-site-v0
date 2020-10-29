@@ -228,6 +228,11 @@ nav.people {
 .sitetitle {
     padding-top: 80px;
 
+    @media screen and (max-width: 600px) {
+        padding-top: 40px;
+        padding-left: 10px;
+    }
+
     .field-content {
         h2 {
             max-width: 75%;
@@ -240,20 +245,8 @@ nav.people {
             color: #333;
             font-size: 52px;
             font-weight: 200;
-        }
-    }
-}
 
-@media screen and (max-width: 600px) {
-    .sitetitle {
-        padding-top: 40px;
-        padding-left: 10px;
-
-        .field-content {
-            h2,
-            h2 a,
-            h2 a:link,
-            h2 a:visited {
+            @media screen and (max-width: 600px) {
                 font-size: 34px;
             }
         }
@@ -368,7 +361,7 @@ footer .region-footer-second {
         margin: 20px 0 55px 0;
 
         li {
-            padding-bottom: 20px;
+            padding-bottom: 10px;
         }
     }
 
@@ -384,10 +377,6 @@ footer .region-footer-second {
 
 .shc-footer .views-field-field-footer p {
     margin-left: 0;
-}
-
-footer .region-footer-second ul li {
-    padding-bottom: 10px;
 }
 
 footer .r-scer-outtershell {
@@ -751,6 +740,7 @@ footer .r-scer-outtershell .r-scer-innershell {
     line-height: 1.15;
     text-transform: uppercase;
     font-family: "Source Sans Pro", sans-serif;
+    margin: 0.75em 0 !important;
 
     a {
         margin: 1.25em 0 .75em !important;
@@ -869,11 +859,12 @@ h3 {
     font-size: 12px;
     text-decoration: none;
     font-weight: 400;
+
+    &:focus {
+        color: #fcfcfc;
+    }
 }
 
-#rpi-mega-header .nav-search input[type=text]:focus {
-    color: #fcfcfc
-}
 
 #rpi-mega-header .nav-search input[type=text]:focus,
 #rpi-mega-header .nav-search:hover input[type=text] {
@@ -915,12 +906,12 @@ h3 {
 }
 
 #rpi-mega-header .mega-menu a:hover {
-    color: #990000;
+    color: #900;
     text-decoration: underline;
 }
 
 #rpi-mega-header .allred {
-    color: #990000 !important;
+    color: #900 !important;
 }
 
 #rpi-mega-header .highlight {
@@ -972,7 +963,7 @@ label.menu-icon {
     margin-top: -4px;
 
     li {
-        /* list-style: none; */
+        // list-style: none;
         text-align: left;
         border-bottom: 1px solid #ddd;
         line-height: 60px;
@@ -1005,27 +996,27 @@ label.menu-icon {
 
 #rpi-mega-header #menuToggle {
     display: none;
+
+    &:checked {
+        &~.nav {
+            position: absolute;
+            left: 0;
+        }
+    
+        &+.menu-icon {
+            .menuup {
+                display: inline;
+            }
+    
+            .menudown {
+                display: none;
+            }
+        }
+    }
 }
 
 #rpi-mega-header .menuup {
     display: none;
-}
-
-#rpi-mega-header #menuToggle:checked {
-    &~.nav {
-        position: absolute;
-        left: 0;
-    }
-
-    &+.menu-icon {
-        .menuup {
-            display: inline;
-        }
-
-        .menudown {
-            display: none;
-        }
-    }
 }
 
 #rpi-mega-header i.fa.fa-times {
@@ -1034,28 +1025,28 @@ label.menu-icon {
 
 #rpi-mega-header #areaToggle {
     display: none;
+
+    &:checked {
+        &~.mega-menu {
+            opacity: 1;
+            position: relative;
+            visibility: visible;
+        }
+    
+        &+.area-icon {
+            .areaup {
+                display: block;
+            }
+    
+            .areadown {
+                display: none;
+            }
+        }
+    }
 }
 
 #rpi-mega-header .areaup {
     display: none;
-}
-
-#rpi-mega-header #areaToggle:checked {
-    &~.mega-menu {
-        opacity: 1;
-        position: relative;
-        visibility: visible;
-    }
-
-    &+.area-icon {
-        .areaup {
-            display: block;
-        }
-
-        .areadown {
-            display: none;
-        }
-    }
 }
 
 #rpi-mega-header #acaToggle {
@@ -1339,7 +1330,11 @@ label.menu-icon {
 }
 
 
-/*  .withchild {border-bottom: 1px dashed #999 !important;}  */
+/*
+.withchild {
+    border-bottom: 1px dashed #999 !important;
+}
+*/
 
 #rpi-mega-header .fa-plus,
 #rpi-mega-header .fa-minus {
@@ -1592,7 +1587,7 @@ label.menu-icon {
         display: none !important;
     }
 
-    /* --- Mega Menu NAV --- */
+    // Mega Menu NAV
     #rpi-mega-header .nav > li {
         float: none;
         display: inline-block;
@@ -1651,9 +1646,15 @@ label.menu-icon {
     }
 }
 
-@media screen and (min-width: 1220px) {
-    #rpi-mega-header .middlelinks nav {
-        padding-right: 0;
+#rpi-mega-header .middlelinks {
+    nav {
+        @media screen and (min-width: 1220px) {
+            padding-right: 0;
+        }
+    }
+
+    @media screen and (max-width: 800px) {
+        display: block;
     }
 }
 
@@ -1668,10 +1669,6 @@ label.menu-icon {
 }
 
 @media screen and (max-width: 800px) {
-    #rpi-mega-header .middlelinks {
-        display: block;
-    }
-
     .apply {
         width: 300px;
         margin: auto;

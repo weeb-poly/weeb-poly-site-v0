@@ -1795,11 +1795,12 @@ img.fiveschools {
     font-weight: 500;
     padding-top: 15px;
     padding-left: 15px;
+
+    a {
+        color: #fff;
+    }
 }
 
-.admin th.header a {
-    color: #ffffff;
-}
 
 .admin th.minors {
     background-color: #424242;

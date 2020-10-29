@@ -126,7 +126,7 @@ section#pandemic {
     width: 50%;
     margin-bottom: 1.2em;
     margin-top: 1em;
-    background-image: url(edm-images/arrow.png);
+    // background-image: url(edm-images/arrow.png);
     background-position: 0 10px;
     background-repeat: no-repeat;
 }
@@ -176,7 +176,7 @@ section#pandemic {
 }
 
 #pandemic.title-screen {
-    background: url("coronavirus/covid-19-bkgrd5.jpg");
+    // background: url("coronavirus/covid-19-bkgrd5.jpg");
     background-position: center center;
     background-size: cover;
     background-color: #000;
@@ -294,7 +294,7 @@ section#every-day-matters {
     width: 50%;
     margin-bottom: 1.2em;
     margin-top: 1em;
-    background-image: url(edm-images/arrow.png);
+    // background-image: url(edm-images/arrow.png);
     background-position: 0 10px;
     background-repeat: no-repeat;
 }
@@ -344,7 +344,7 @@ section#magazine-promo {
 }
 
 #magazine-promo .banner01 {
-    background-image: url("mag-images/transportation.jpg");
+    // background-image: url("mag-images/transportation.jpg");
     background-position: center right;
     background-color: #000;
     color: #666 !important;
@@ -440,7 +440,7 @@ section#podcast {
 }
 
 #podcast .banner01 {
-    background-image: url("podcast-images/globe-podcast-background.jpg");
+    // background-image: url("podcast-images/globe-podcast-background.jpg");
     background-position: center right;
     background-color: #000;
     color: #fff !important;
@@ -497,7 +497,7 @@ section#podcast {
     }
 }
 
-/*Podcast Slide END*/
+// Podcast Slide END
 
 // COVID Mag Slide START
 #covid-mag {
@@ -531,7 +531,7 @@ section#podcast {
     }
 
     .banner01 {
-        background-image: url("edm-images/brand-video.jpg");
+        // background-image: url("edm-images/brand-video.jpg");
         background-position: center center;
         background-color: #fff;
         color: #000 !important;
@@ -599,9 +599,9 @@ section#podcast {
     }
 }
 
-/*STREAM BAR END*/
+// STREAM BAR END
 
-/*STREAM BAR START BLUE VERSION*/
+// STREAM BAR START BLUE VERSION
 
 #stream-link {
     background-color: #00205b;
@@ -623,9 +623,9 @@ section#podcast {
     }
 }
 
-/*STREAM BAR END*/
+// STREAM BAR END
 
-/*STREAM BAR START GRAY VERSION*/
+// STREAM BAR START GRAY VERSION
 
 #stream-link.gray-bar {
     background-color: #B6B6B6;
@@ -686,6 +686,7 @@ section#podcast {
         margin-left: 5em;
         margin-right: auto;
     }
+
     #magazine-promo {
         .copy {
             width: 55%;
@@ -693,6 +694,7 @@ section#podcast {
             margin-right: auto;
             margin-bottom: 5em;
         }
+
         p.description {
             display: none;
         }
@@ -700,6 +702,7 @@ section#podcast {
     .container {
         height: auto;
     }
+
     #every-day-matters.comm-2020 {
         .banner01 {
             background-position: left;
