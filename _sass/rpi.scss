@@ -79,7 +79,6 @@ a.skip-main {
     }
 }
 
-
 #rpi-ribbon {
     width: 200vw;
     background-color: #900;
@@ -107,8 +106,8 @@ nav.people {
             width: 0;
             padding: 0;
             margin: 0;
-            padding-left: 0;
-            padding-right: 0;
+            // padding-left: 0;
+            // padding-right: 0;
             border: 0;
             border-bottom: 1px solid #fff;
             transition: width 200ms ease;
@@ -133,13 +132,13 @@ nav.people {
 }
 
 :-moz-placeholder {
-    /* Firefox 18- */
+    // Firefox 18-
     color: #fff;
     font-family: 'Source Sans Pro', sans-serif;
 }
 
 ::-moz-placeholder {
-    /* Firefox 19+ */
+    // Firefox 19+
     color: #fff;
     font-family: 'Source Sans Pro', sans-serif;
 }
@@ -150,7 +149,7 @@ nav.people {
 }
 
 
-/* search */
+// search
 
 #rpi-site-search-query {
     -moz-border-bottom-colors: none;
@@ -256,14 +255,14 @@ nav.people {
 /*-------- Page Title ---------*/
 
 
-/** Remove Page Title from frontpage **/
+// Remove Page Title from frontpage
 
 .node-type-frontpage h1#page-title.title {
     display: none;
 }
 
 
-/** Subpage page title **/
+// Subpage page title
 
 h1#page-title {
     font-weight: 300;
@@ -307,7 +306,7 @@ footer .r-scer-flag {
     }
 }
 
-.r-scer-flag > img {
+.r-scer-flag > img.flag-img {
     margin-top: 75px;
     width: 150px;
     height: auto;
@@ -377,6 +376,33 @@ footer .region-footer-second {
 
 .shc-footer .views-field-field-footer p {
     margin-left: 0;
+}
+
+footer .r-scer-social {
+    h3 {
+        font-size: 18px;
+        font-weight: 100;
+        margin-top: 2em;
+    }
+
+    ul {
+        list-style: none;
+        padding-left: 0;
+        margin: 10px 0 0 0;
+
+        li {
+            display: inline-block;
+            margin-right: 0.5em;
+
+            &:last-child {
+                margin-right: 0;
+            }
+
+            a {
+                text-decoration: none;
+            }
+        }
+    }
 }
 
 footer .r-scer-outtershell {
@@ -752,7 +778,7 @@ footer .r-scer-outtershell .r-scer-innershell {
     color: #444;
     font-size: .95em;
     line-height: 1.15;
-    margin: 1.25em 0 .75em !important;
+    // margin: 1.25em 0 .75em !important;
     text-transform: uppercase;
     font-family: "Source Sans Pro", sans-serif;
 }
@@ -760,8 +786,8 @@ footer .r-scer-outtershell .r-scer-innershell {
 #rpi-mega-header .mega-menu h3 {
     color: #444;
     padding-left: 40px;
-    padding-top: 20px;
-    border-bottom: 1px solid #ddd;
+    // padding-top: 20px;
+    // border-bottom: 1px solid #ddd;
     font-weight: 400;
 }
 
@@ -915,7 +941,7 @@ h3 {
 }
 
 #rpi-mega-header .highlight {
-    color: #2196f3
+    color: #2196f3;
 }
 
 .arrows-text {
@@ -1263,7 +1289,7 @@ label.menu-icon {
         line-height: 24px;
         padding-left: 0;
         text-align: left;
-        margin: 0 40px 30px 40px;
+        margin: 0 0 0 40px;
     }
     
     img {
@@ -1307,15 +1333,15 @@ label.menu-icon {
     left: 0;
     background-color: #e8e8e8;
     padding-bottom: 5px !important;
-    margin-top: 20px !important;
+    // margin-top: 20px !important;
 
     li {
         list-style-type: none;
         border-bottom: 0 solid #ddd;
-        line-height: 20px !important;
+        // line-height: 20px !important;
         padding-left: 0;
         text-align: left;
-        margin: 0 10px 10px 15px !important;
+        // margin: 0 10px 10px 15px !important;
         padding-top: 15px;
     }
 }
@@ -1375,35 +1401,74 @@ label.menu-icon {
         width: 375px;
         top: 275px;
     }
-    #rpi-mega-header .middlelinks a {
-        padding: 0 0 0 1.5em;
-    }
 }
 
-@media screen and (min-width: 600px) {
-    #rpi-mega-header .middlelinks {
-        a {
+#rpi-mega-header .middlelinks {
+    a {
+        @media screen and (min-width: 400px) {
+            padding: 0 0 0 1.5em;
+        }
+
+        @media screen and (min-width: 600px) {
             padding: 0 0 0 2em;
         }
-        .logo img {
-            width: 375px;
-            height: auto;
+    }
+
+    .logo {
+        @media screen and (min-width: 600px) {
+            img {
+                width: 375px;
+                height: auto;
+            }
         }
+
+        @media screen and (min-width: 801px) {
+            display: inline-block;
+            margin-top: 20px;
+            width: auto;
+            text-align: center;
+            margin-left: 20px;
+            padding-top: 0;
+        }
+
+        @media screen and (min-width: 1200px) {
+            display: inline-block;
+            margin-top: 20px;
+            margin-left: 0;
+        }
+    }
+
+    nav {
+        @media screen and (min-width: 801px) {
+            padding-right: 20px;
+        }
+
+        @media screen and (min-width: 1200px) {
+            &.apply {
+                text-transform: capitalize;
+            }
+        }
+
+        @media screen and (min-width: 1220px) {
+            padding-right: 0;
+        }
+    }
+
+    @media screen and (min-width: 1200px) {
+        width: 1200px;
+        margin-left: auto;
+        margin-right: auto;
+        height: 100%;
+    }
+
+    @media screen and (max-width: 800px) {
+        display: block;
     }
 }
 
+
+
 @media screen and (min-width: 801px) {
-    #rpi-mega-header .middlelinks nav {
-        padding-right: 20px;
-    }
-    #rpi-mega-header .middlelinks .logo {
-        display: inline-block;
-        margin-top: 20px;
-        width: auto;
-        text-align: center;
-        margin-left: 20px;
-        padding-top: 0;
-    }
     #rpi-mega-header .topbanner {
         height: 160px;
     }
@@ -1563,6 +1628,10 @@ label.menu-icon {
         img {
             width: 100%;
         }
+
+        a:hover {
+            color: #900;
+        }
     }
 
     #rpi-mega-header .nav-column li a {
@@ -1580,9 +1649,7 @@ label.menu-icon {
         line-height: 1.20em;
         margin-bottom: 14px;
     }
-    #rpi-mega-header .nav-column33 a:hover {
-        color: #900;
-    }
+
     #menu-wrapper-ribbon {
         display: none !important;
     }
@@ -1597,6 +1664,7 @@ label.menu-icon {
         h3 {
             border-bottom: 0 solid #ddd;
         }
+
         li {
             padding-bottom: 0;
         }
@@ -1614,23 +1682,6 @@ label.menu-icon {
 }
 
 @media screen and (min-width: 1200px) {
-    #rpi-mega-header .middlelinks {
-        width: 1200px;
-        margin-left: auto;
-        margin-right: auto;
-        height: 100%;
-
-        .logo {
-            display: inline-block;
-            margin-top: 20px;
-            margin-left: 0;
-        }
-
-        nav.apply {
-            text-transform: capitalize;
-        }
-    }
-
     #rpi-mega-header .nav {
         font-size: 16px;
     }
@@ -1646,17 +1697,7 @@ label.menu-icon {
     }
 }
 
-#rpi-mega-header .middlelinks {
-    nav {
-        @media screen and (min-width: 1220px) {
-            padding-right: 0;
-        }
-    }
 
-    @media screen and (max-width: 800px) {
-        display: block;
-    }
-}
 
 @media only screen and (max-width: 1120px) and (min-width: 1020px) {
     #rpi-mega-header .nav {
