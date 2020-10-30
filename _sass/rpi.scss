@@ -254,23 +254,20 @@ nav.people {
 
 /*-------- Page Title ---------*/
 
-
-// Remove Page Title from frontpage
-
-.node-type-frontpage h1#page-title.title {
-    display: none;
-}
-
-
-// Subpage page title
-
 h1#page-title {
-    font-weight: 300;
-    font-size: 2.6rem;
-    margin: 2.6rem 0;
-    color: #900;
-}
+    // Remove Page Title from frontpage
+    .node-type-frontpage &.title {
+        display: none;
+    }
 
+    // Subpage page title
+    & {
+        font-weight: 300;
+        font-size: 2.6rem;
+        margin: 2.6rem 0;
+        color: #900;
+    }
+}
 
 /*-------- footer ------------ */
 
@@ -326,22 +323,24 @@ footer .r-scer-outtershell {
     }
 }
 
-footer .r-scer-flag {
-    background-color: #363636;
-    width: 275px;
-    text-align: center;
-    height: 100%;
-    float: left;
+.r-scer-flag {
+    footer & {
+        background-color: #363636;
+        width: 275px;
+        text-align: center;
+        height: 100%;
+        float: left;
 
-    p {
-        margin-top: 20px;
+        p {
+            margin-top: 20px;
+        }
     }
-}
 
-.r-scer-flag > img.flag-img {
-    margin-top: 75px;
-    width: 150px;
-    height: auto;
+    > img.flag-img {
+        margin-top: 75px;
+        width: 150px;
+        height: auto;
+    }
 }
 
 footer .region-footer-second {
@@ -1007,12 +1006,12 @@ label.menu-icon {
     display: none;
 
     &:checked {
-        &~.nav {
+        ~ .nav {
             position: absolute;
             left: 0;
         }
     
-        &+.menu-icon {
+        + .menu-icon {
             .menuup {
                 display: inline;
             }
@@ -1040,13 +1039,13 @@ label.menu-icon {
     display: none;
 
     &:checked {
-        &~.mega-menu {
+        ~ .mega-menu {
             opacity: 1;
             position: relative;
             visibility: visible;
         }
     
-        &+.area-icon {
+        + .area-icon {
             .areaup {
                 display: block;
             }
@@ -1273,6 +1272,7 @@ label.menu-icon {
     visibility: hidden;
     width: 100%;
     left: 0;
+    padding-bottom: 20px;
 
     li {
         list-style-type: none;
@@ -1377,11 +1377,11 @@ label.menu-icon {
     }
 
     #rpi-mega-header #przToggle:checked {
-        &~.przup {
+        ~ .przup {
             display: block;
         }
 
-        &~.mega-menu {
+        ~ .mega-menu {
             opacity: 1;
             position: relative;
             visibility: visible;
@@ -1612,6 +1612,16 @@ label.menu-icon {
         img {
             width: 100%;
         }
+
+        li a {
+            color: #767676;
+            display: block;
+            line-height: 1.75em;
+        }
+
+        a:hover {
+            color: #900;
+        }
     }
 
     #rpi-mega-header .nav-column33 {
@@ -1630,14 +1640,6 @@ label.menu-icon {
         }
     }
 
-    #rpi-mega-header .nav-column li a {
-        color: #767676;
-        display: block;
-        line-height: 1.75em;
-    }
-    #rpi-mega-header .nav-column a:hover {
-        color: #900;
-    }
     #rpi-mega-header .nav-column33 li a,
     #rpi-mega-header .nav-column li a {
         color: #767676;

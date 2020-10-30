@@ -78,7 +78,7 @@ ul.list-inline {
 }
 
 .list-inline__menu a {
-    color: #000000;
+    color: #000;
 }
 
 /* ---  ##Inline List with Slash. Suggested use: Combine with 'list-inline'.--- */
@@ -123,7 +123,7 @@ ul.slash {
     &:hover {
         transition: all 0.1s linear;
         background-color: #fff;
-        color: #990011;
+        color: #901;
     }
 }
 
@@ -987,10 +987,6 @@ blockquote {
     text-shadow: 0 0 1px rgba(0, 0, 0, 1);
     line-height: 1.6em;
 
-    a:hover #{&} {
-        text-decoration: underline;
-    }
-
     @media (max-width: 1195px) {
         font-weight: 400;
         top: 15%;
@@ -1083,9 +1079,9 @@ blockquote {
 }
 
 .home-events header {
-    color: #990000;
+    color: #900;
     text-align: center;
-    border-bottom: 1px solid #990000;
+    border-bottom: 1px solid #900;
     padding-bottom: 1em;
     margin-bottom: 1.5em;
 }
@@ -1124,62 +1120,87 @@ blockquote {
     -webkit-flex-direction: row;
     /* Safari 6.1+ */
     flex-direction: row;
+
+    h3 {
+        font-size: 1em;
+        padding-left: 1em;
+        padding-right: 3em;
+        color: #424242;
+    }
+
+    @media (max-width: 840px) {
+        -webkit-justify-content: space-around;
+        justify-content: space-around;
+    }
+
+    @media (max-width: 500px) {
+        -webkit-flex-direction: column;
+        /* Safari 6.1+ */
+        flex-direction: column;
+    }
 }
 
-.home-events--calendar h3 {
-    font-size: 1em;
-    padding-left: 1em;
-    padding-right: 3em;
-    color: #424242;
-}
+.home-events--calendar__event {
+    @at-root a#{&} {
+        &,
+        &:link {
+            color: #424242;
+            text-decoration: none;
+            display: -webkit-box;
+            /* OLD - iOS 6-, Safari 3.1-6, BB7 */
+            display: -ms-flexbox;
+            /* TWEENER - IE 10 */
+            display: -webkit-flex;
+            /* NEW - Safari 6.1+. iOS 7.1+, BB10 */
+            display: flex;
+            /* NEW, Spec - Firefox, Chrome, Opera */
+            flex-direction: row;
+            -webkit-flex-direction: row;
+            /* Safari 6.1+ */
+            align-items: center;
 
-a.home-events--calendar__event,
-a:link.home-events--calendar__event {
-    color: #424242;
-    text-decoration: none;
-    display: -webkit-box;
-    /* OLD - iOS 6-, Safari 3.1-6, BB7 */
-    display: -ms-flexbox;
-    /* TWEENER - IE 10 */
-    display: -webkit-flex;
-    /* NEW - Safari 6.1+. iOS 7.1+, BB10 */
-    display: flex;
-    /* NEW, Spec - Firefox, Chrome, Opera */
-    flex-direction: row;
-    -webkit-flex-direction: row;
-    /* Safari 6.1+ */
-    align-items: center;
-}
+            @media (max-width: 840px) {
+                -webkit-flex-direction: column;
+                /* Safari 6.1+ */
+                flex-direction: column;
+            }
+        }
 
-a:hover.home-events--calendar__event {
-    text-decoration: underline;
-}
+        &:hover {
+            text-decoration: underline;
+        }
 
-.home-events--calendar__event .time {
-    display: -webkit-box;
-    /* OLD - iOS 6-, Safari 3.1-6, BB7 */
-    display: -ms-flexbox;
-    /* TWEENER - IE 10 */
-    display: -webkit-flex;
-    /* NEW - Safari 6.1+. iOS 7.1+, BB10 */
-    display: flex;
-    /* NEW, Spec - Firefox, Chrome, Opera */
-    -webkit-flex-direction: column;
-    /* Safari 6.1+ */
-    flex-direction: column;
-    border-right: 1px solid #ccc;
-    padding-right: 1em;
-    line-height: 1.5em;
-    text-align: center;
-}
+        @media (max-width: 500px) {
+            margin-bottom: 1em;
+        }
+    }
 
-.home-events--calendar__event .month {
-    text-transform: uppercase;
-    font-size: 0.938em;
-}
+    .time {
+        display: -webkit-box;
+        /* OLD - iOS 6-, Safari 3.1-6, BB7 */
+        display: -ms-flexbox;
+        /* TWEENER - IE 10 */
+        display: -webkit-flex;
+        /* NEW - Safari 6.1+. iOS 7.1+, BB10 */
+        display: flex;
+        /* NEW, Spec - Firefox, Chrome, Opera */
+        -webkit-flex-direction: column;
+        /* Safari 6.1+ */
+        flex-direction: column;
+        border-right: 1px solid #ccc;
+        padding-right: 1em;
+        line-height: 1.5em;
+        text-align: center;
+    }
 
-.home-events--calendar__event .day {
-    font-size: 2.250em
+    .month {
+        text-transform: uppercase;
+        font-size: 0.938em;
+    }
+
+    .day {
+        font-size: 2.250em
+    }
 }
 
 @media (max-width: 1195px) {
@@ -1189,43 +1210,24 @@ a:hover.home-events--calendar__event {
 }
 
 @media (max-width: 840px) {
-    a.home-events--calendar__event,
-    a:link.home-events--calendar__event {
-        -webkit-flex-direction: column;
-        /* Safari 6.1+ */
-        flex-direction: column;
-    }
-    .home-events--calendar__event .time {
-        border-right: none;
-        border-bottom: 1px solid #ccc;
-        padding-right: 0;
-        padding-bottom: 1em;
-        text-align: center;
-        margin-bottom: 1em;
-    }
-    .home-events--calendar__event h3 {
-        font-size: 1em;
-        padding-left: 1em;
-        padding-right: 1em;
-        text-align: center;
-    }
-    .home-events--calendar {
-        -webkit-justify-content: space-around;
-        justify-content: space-around;
+    .home-events--calendar__event {
+        .time {
+            border-right: none;
+            border-bottom: 1px solid #ccc;
+            padding-right: 0;
+            padding-bottom: 1em;
+            text-align: center;
+            margin-bottom: 1em;
+        }
+
+        h3 {
+            font-size: 1em;
+            padding-left: 1em;
+            padding-right: 1em;
+            text-align: center;
+        }
     }
 }
-
-@media (max-width: 500px) {
-    .home-events--calendar {
-        -webkit-flex-direction: column;
-        /* Safari 6.1+ */
-        flex-direction: column;
-    }
-    a.home-events--calendar__event {
-        margin-bottom: 1em;
-    }
-}
-
 
 /*------------------------------------*\
   #End HOME-EVENTS
@@ -1275,13 +1277,6 @@ a:hover.home-events--calendar__event {
     }
 }
 
-
-
-
-
-
-
-
 /*------------------------------------*\
   # End CAMPAIGN CTA
 \*------------------------------------*\
@@ -1312,9 +1307,6 @@ a:hover.home-events--calendar__event {
 .about-research button {
     margin-bottom: 2em;
 }
-
-
-
 
 /*------------------------------------*\
   #ABOUT-QUICKFACTS-2
@@ -1363,19 +1355,19 @@ a:hover.home-events--calendar__event {
 }
 
 #About-Checkerboard .checkerboard-block:nth-child(2n+1) {
-    background-color: #333333;
+    background-color: #333;
 }
 
 #About-Checkerboard .checkerboard-block:nth-child(2n+2) {
-    background-color: #000000;
+    background-color: #000;
 }
 
 #About-Checkerboard .checkerboard-block:nth-child(3n+1) ul li {
-    border-top: 1px solid #666666;
+    border-top: 1px solid #666;
 }
 
 #About-Checkerboard .checkerboard-block:nth-child(3n+2) ul li {
-    border-top: 1px solid #999999;
+    border-top: 1px solid #999;
 }
 
 @media (max-width: 1200px) {
@@ -1459,7 +1451,7 @@ a:hover.home-events--calendar__event {
 .bkgrd--admissions {
     background: url("../images2017/admissions/top-image-2.jpg") no-repeat;
     background-size: cover;
-    background-color: #000000;
+    background-color: #000;
 }
 
 .admissions-fa {
@@ -1818,7 +1810,7 @@ img.fiveschools {
     }
 
     th.profdev {
-        background-color: #333366;
+        background-color: #336;
         color: #fff;
         text-transform: uppercase;
         font-size: 18px;

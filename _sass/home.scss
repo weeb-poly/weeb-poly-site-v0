@@ -54,7 +54,7 @@
         font-family: "Source Sans Pro", sans-serif;
         font-size: 22px;
         font-weight: 400;
-        color: #D6001C;
+        color: #d6001c;
         width: 80%;
         text-transform: uppercase;
         text-align: center;
@@ -482,7 +482,7 @@ section#podcast {
         font-family: "Source Sans Pro", sans-serif;
         font-weight: 400;
         font-size: 22px;
-        color: #D6001C;
+        color: #d6001c;
         text-transform: uppercase;
         padding: 20px 40px;
         background-color: #fff;
@@ -490,7 +490,7 @@ section#podcast {
         letter-spacing: 2px;
     
         &:hover {
-            background-color: #D6001C;
+            background-color: #d6001c;
             text-decoration: none;
             color: #fff;
         }
@@ -515,7 +515,7 @@ section#podcast {
         text-shadow: 2px 2px 3px #000;
     }
 
-    section#{&} {
+    @at-root section#{&} {
         overflow: hidden;
         position: relative;
         display: flex;
