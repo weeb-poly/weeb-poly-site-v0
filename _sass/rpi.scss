@@ -291,6 +291,38 @@ footer .r-scer-outtershell {
         margin-left: auto;
         margin-right: auto;
         height: 700px;
+
+        @media only screen and (max-width: 1200px) {
+            width: 100%;
+            height: 660px;
+        }
+
+        @media only screen and (max-width: 775px) {
+            height: auto;
+        }
+
+        @media only screen and (max-width: 1200px) {
+            height: 820px;
+        }
+    }
+
+    $screen-bg-pos: (
+        "775px": 80%,
+        "1000px": 70%,
+        "1200px": 60%,
+        "1300px": 50%,
+        "1550px": 50%,
+        "1700px": 40%,
+        "1800px": 30%,
+        "1900px": 0%,
+        "2000px": -100%,
+        "2200px": 150%,
+    );
+
+    @each $mw, $pos in $screen-bg-pos {
+        @media only screen and (max-width: $mw) {
+            background-position: $pos 100%;
+        }
     }
 }
 
@@ -405,49 +437,7 @@ footer .r-scer-social {
     }
 }
 
-footer .r-scer-outtershell {
-    @media only screen and (max-width: 2200px) {
-        background-position: 150% 100%;
-    }
-
-    @media only screen and (max-width: 2000px) {
-        background-position: -100% 100%;
-    }
-
-    @media only screen and (max-width: 1900px) {
-        background-position: 0% 100%;
-    }
-
-    @media only screen and (max-width: 1800px) {
-        background-position: 30% 100%;
-    }
-
-    @media only screen and (max-width: 1700px) {
-        background-position: 40% 100%;
-    }
-
-    @media only screen and (max-width: 1550px) {
-        background-position: 50% 100%;
-    }
-
-    @media only screen and (max-width: 1300px) {
-        background-position: 50% 100%;
-}
-
-    @media only screen and (max-width: 1200px) {
-        background-position: 60% 100%;
-    }
-
-    @media only screen and (max-width: 1000px) {
-        background-position: 70% 100%;
-    }
-}
-
 @media only screen and (max-width: 1200px) {
-    footer .r-scer-outtershell .r-scer-innershell {
-        width: 100%;
-        height: 660px;
-    }
     footer .column {
         width: 22%;
         margin-left: 0;
@@ -510,9 +500,6 @@ footer .r-scer-outtershell {
 }
 
 @media only screen and (max-width: 775px) {
-    footer .r-scer-outtershell .r-scer-innershell {
-        height: auto;
-    }
     footer .column {
         width: 100%;
         float: none;
@@ -541,9 +528,7 @@ footer .r-scer-outtershell {
         margin-right: auto !important;
         padding-bottom: 60px;
     }
-    footer .r-scer-outtershell {
-        background-position: 80% 100%;
-    }
+
     footer .region-footer-second .column {
         text-align: center;
     }
@@ -649,15 +634,7 @@ footer .region-footer-second {
     }
 }
 
-footer .r-scer-outtershell .r-scer-innershell {
-    @media only screen and (max-width: 1200px) {
-        height: 820px;
-    }
 
-    @media only screen and (max-width: 775px) {
-        height: auto;
-    }
-}
 
 
 /* --------End Vibrant Footer ---------*/
@@ -856,85 +833,90 @@ h3 {
     z-index: 510
 }
 
-#rpi-mega-header .nav>li>a {
-    color: #767676;
-    display: block;
-    line-height: 40px;
-    padding: 0 2em;
-    transition: all .3s ease;
-    text-transform: uppercase;
-}
+#rpi-mega-header .nav > li {
+    > a {
+        color: #767676;
+        display: block;
+        line-height: 40px;
+        padding: 0 2em;
+        transition: all .3s ease;
+        text-transform: uppercase;
+    }
 
-#rpi-mega-header .nav>li:first-child>a {
-    border-left: none;
-}
-
-#rpi-mega-header .nav-search>form {
-    width: inherit;
-    display: inline-block;
-}
-
-#rpi-mega-header .nav-search input[type=text] {
-    background: #900;
-    color: #eee;
-    display: block;
-    float: left;
-    transition: all .3s ease 1s;
-    width: 0;
-    border: 0;
-    text-transform: uppercase;
-    font-size: 12px;
-    text-decoration: none;
-    font-weight: 400;
-
-    &:focus {
-        color: #fcfcfc;
+    &:first-child > a {
+        border-left: none;
     }
 }
 
+#rpi-mega-header .nav-search {
+    > form {
+        width: inherit;
+        display: inline-block;
+    }
 
-#rpi-mega-header .nav-search input[type=text]:focus,
-#rpi-mega-header .nav-search:hover input[type=text] {
-    padding: 0;
-    transition: all .3s ease .1s;
-    width: 6.875em;
-    text-transform: uppercase;
-    color: #fff;
-    font-size: 12px;
-    text-decoration: none;
-    font-weight: 400;
+    input[type=text] {
+        background: #900;
+        color: #eee;
+        display: block;
+        float: left;
+        transition: all .3s ease 1s;
+        width: 0;
+        border: 0;
+        text-transform: uppercase;
+        font-size: 12px;
+        text-decoration: none;
+        font-weight: 400;
+
+        &:focus {
+            color: #fcfcfc;
+        }
+    }
+
+    input[type=text]:focus,
+    &:hover input[type=text] {
+        padding: 0;
+        transition: all .3s ease .1s;
+        width: 6.875em;
+        text-transform: uppercase;
+        color: #fff;
+        font-size: 12px;
+        text-decoration: none;
+        font-weight: 400;
+    }
+
+    input[type=submit] {
+        background: url(../img/search-icon.svg) center center no-repeat;
+        border-radius: 0;
+        cursor: pointer;
+        display: block;
+        float: left;
+        padding: 0 1.25em;
+        transition: all .3s ease;
+        border: 0;
+    }
+
+    input:focus,
+    input[type=submit]:hover {
+        background-color: #900;
+    }
 }
 
-#rpi-mega-header .nav-search input[type=submit] {
-    background: url(../img/search-icon.svg) center center no-repeat;
-    border-radius: 0;
-    cursor: pointer;
-    display: block;
-    float: left;
-    padding: 0 1.25em;
-    transition: all .3s ease;
-    border: 0;
-}
+#rpi-mega-header .mega-menu {
+    p {
+        color: #767676;
+        font-size: 14px;
+        line-height: 20px;
+    }
 
-#rpi-mega-header .nav-search input:focus,
-#rpi-mega-header .nav-search input[type=submit]:hover {
-    background-color: #900;
-}
+    li a {
+        font-size: 18px;
+        font-weight: 400;
+    }
 
-#rpi-mega-header .mega-menu p {
-    color: #767676;
-    font-size: 14px;
-    line-height: 20px;
-}
-
-#rpi-mega-header .mega-menu li a {
-    font-size: 18px;
-    font-weight: 400;
-}
-
-#rpi-mega-header .mega-menu a:hover {
-    color: #900;
-    text-decoration: underline;
+    a:hover {
+        color: #900;
+        text-decoration: underline;
+    }
 }
 
 #rpi-mega-header .allred {
@@ -1046,8 +1028,12 @@ label.menu-icon {
     display: none;
 }
 
-#rpi-mega-header i.fa.fa-times {
-    padding-right: 1.5px;
+#rpi-mega-header i {
+    font-weight:300;
+
+    &.fa.fa-times {
+        padding-right: 1.5px;
+    }
 }
 
 #rpi-mega-header #areaToggle {
@@ -1078,49 +1064,53 @@ label.menu-icon {
 
 #rpi-mega-header #acaToggle {
     display: none;
+
+    &:checked {
+        ~ .mega-menu {
+            opacity: 1;
+            position: relative;
+            visibility: visible;
+        }
+
+        + .area-icon {
+            .acaup {
+                display: block;
+            }
+
+            .acadown {
+                display: none;
+            }
+        }
+    }
 }
 
 #rpi-mega-header .acaup {
     display: none;
 }
 
-#rpi-mega-header #acaToggle:checked {
-    &~.mega-menu {
-        opacity: 1;
-        position: relative;
-        visibility: visible;
-    }
-
-    &+.area-icon {
-        .acaup {
-            display: block;
-        }
-
-        .acadown {
-            display: none;
-        }
-    }
-}
-
 #rpi-mega-header #admToggle {
     display: none;
+
+    &:checked {
+        ~ .mega-menu {
+            opacity: 1;
+            position: relative;
+            visibility: visible;
+        }
+
+        + .area-icon {
+            .admup {
+                display: block;
+            }
+
+            .admdown {
+                display: none;
+            }
+        }
+    }
 }
 
 #rpi-mega-header .admup {
-    display: none;
-}
-
-#rpi-mega-header #admToggle:checked~.mega-menu {
-    opacity: 1;
-    position: relative;
-    visibility: visible;
-}
-
-#rpi-mega-header #admToggle:checked+.area-icon .admup {
-    display: block;
-}
-
-#rpi-mega-header #admToggle:checked+.area-icon .admdown {
     display: none;
 }
 
@@ -1315,14 +1305,17 @@ label.menu-icon {
 }
 
 #rpi-mega-header .nav-column33 {
-    li a {
-        color: #900;
-        display: inline;
-        line-height: 1.4
-    }
+    li {
+        a {
+            color: #900;
+            display: inline;
+            line-height: 1.4;
+            font-size: 16px;
+        }
 
-    li li a {
-        color: #900;
+        li a {
+            color: #900;
+        }
     }
 }
 
@@ -1335,6 +1328,7 @@ label.menu-icon {
     background-color: #e8e8e8;
     padding-bottom: 5px !important;
     // margin-top: 20px !important;
+    margin-top: 10px !important;
 
     li {
         list-style-type: none;
@@ -1344,6 +1338,7 @@ label.menu-icon {
         text-align: left;
         // margin: 0 10px 10px 15px !important;
         padding-top: 15px;
+        margin: 0;
     }
 }
 

@@ -139,12 +139,12 @@ ul.slash {
 }
 
 .btn--secondary {
-    background-color: #224;
-    /* dark purple */
+    $dark-purple: #224;
+
+    background-color: $dark-purple;
 
     &:hover {
-        color: #224;
-        /* dark purple */
+        color: $dark-purple;
         background-color: #fff;
     }
 }
@@ -163,17 +163,17 @@ ul.slash {
 
 .btn--small {
     font-size: 0.750rem;
-    /* 12px based on 16px=1rem */
+    // 12px based on 16px=1rem
 }
 
 .btn--med {
     font-size: 1.125rem;
-    /* 18px based on 16px=1rem */
+    // 18px based on 16px=1rem
 }
 
 .btn--large {
     font-size: 1.4rem;
-    /* 22px based on 16px=1rem */
+    // 22px based on 16px=1rem
     text-transform: none;
     font-weight: 200;
 }
@@ -261,25 +261,26 @@ blockquote {
         font-size: 26px;
         line-height: 1.6em;
     }
-}
 
-.blockquote__primary {
-    /* dark red text */
-    color: #901;
-}
-
-.blockquote__secondary {
-    color: #000;
-}
-
-.blockquote__tertiary {
-    text-align: left;
-}
-
-.blockquote__small {
-    font-size: 1.25rem;
-    font-weight: normal;
-    line-height: 1.75em;
+    &__primary {
+        $dark-red: #901;
+        // dark red text
+        color: $dark-red;
+    }
+    
+    &__secondary {
+        color: #000;
+    }
+    
+    &__tertiary {
+        text-align: left;
+    }
+    
+    &__small {
+        font-size: 1.25rem;
+        font-weight: normal;
+        line-height: 1.75em;
+    }
 }
 
 
@@ -436,36 +437,37 @@ blockquote {
 /*------------------------------------*\
   #BANNER AREA
 \*------------------------------------*/
+.banner-area {
+    h2 {
+        text-transform: uppercase;
+        font-size: 22px;
+        color: #900;
+        padding: 5.5rem 0 2.5rem 5.2rem;
+        font-weight: 600;
 
-.banner-area h2 {
-    text-transform: uppercase;
-    font-size: 22px;
-    color: #900;
-    padding: 5.5rem 0 2.5rem 5.2rem;
-    font-weight: 600;
-
-    @media (max-width: 768px) {
-        padding-right: 15px;
-        padding-left: 15px;
+        @media (max-width: 768px) {
+            padding-right: 15px;
+            padding-left: 15px;
+        }
     }
-}
 
-.banner-area h3 {
-    font-size: 1.500rem;
-    color: #fff;
-    padding: 1.875rem 0;
-    text-align: center;
-    text-transform: uppercase;
-}
+    h3 {
+        font-size: 1.500rem;
+        color: #fff;
+        padding: 1.875rem 0;
+        text-align: center;
+        text-transform: uppercase;
+    }
 
-.banner-area__arrow {
-    width: 0;
-    height: 0;
-    border-left: 25px solid transparent;
-    border-right: 25px solid transparent;
-    border-top: 25px solid #fff;
-    margin-left: auto;
-    margin-right: auto;
+    &__arrow {
+        width: 0;
+        height: 0;
+        border-left: 25px solid transparent;
+        border-right: 25px solid transparent;
+        border-top: 25px solid #fff;
+        margin-left: auto;
+        margin-right: auto;
+    }
 }
 
 /*------------------------------------*\
@@ -505,31 +507,35 @@ blockquote {
         /* Safari 6.1+ */
         flex-direction: row;
     }
-    
-    &:nth-child(3n+1) {
-        background-color: #336;
 
-        ul li {
-            border-top: 1px solid #5959a0;
+    $nth-child-color: (
+        "3n+1": (
+            background-color: #336,
+            border-color: #5959a0,
+        ),
+        "3n+2": (
+            background-color: #424242,
+            border-color: #666,
+        ),
+        "3n+3": (
+            background-color: #901,
+            border-color: #c14343,
+        ),
+    );
+
+    @each $child, $map in $nth-child-color {
+        $background-color: map-get($map, background-color);
+        $border-color: map-get($map, border-color);
+
+        &:nth-child(#{$child}) {
+            background-color: $background-color;
+    
+            ul li {
+                border-top: 1px solid $border-color;
+            }
         }
     }
-    
-    &:nth-child(3n+2) {
-        background-color: #424242;
 
-        ul li {
-            border-top: 1px solid #666;
-        }
-    }
-    
-    &:nth-child(3n+3) {
-        background-color: #901;
-
-        ul li {
-            border-top: 1px solid #c14343;
-        }
-    }
-    
     header {
         -webkit-flex: 1 1 0;
         /* Safari 6.1+ */
@@ -855,50 +861,50 @@ blockquote {
     background: url(../imgs/diamonds-dkgray.jpg);
     padding: 4rem 0;
     background-color: #000;
-}
 
-.home-academics h3 {
-    color: #fff;
-    font-size: 1.5em;
-    text-align: center;
-    line-height: 1.5em;
-    margin-bottom: 1em;
-    letter-spacing: 1px;
-}
-
-.home-academics .academiclist {
-    margin: 0 auto;
-    width: 35%;
-
-    @media (max-width: 990px) {
-        width: 70%;
+    h3 {
+        color: #fff;
+        font-size: 1.5em;
+        text-align: center;
+        line-height: 1.5em;
+        margin-bottom: 1em;
+        letter-spacing: 1px;
     }
-
-    @media (max-width: 500px) {
+    
+    .academiclist {
+        margin: 0 auto;
+        width: 35%;
+    
+        @media (max-width: 990px) {
+            width: 70%;
+        }
+    
+        @media (max-width: 500px) {
+            width: 100%;
+        }
+    }
+    
+    .btn {
+        background-color: #fff;
+        color: #000;
+        text-transform: lowercase;
         width: 100%;
+        border: none;
     }
-}
-
-.home-academics .btn {
-    background-color: #fff;
-    color: #000;
-    text-transform: lowercase;
-    width: 100%;
-    border: none;
-}
-
-.home-academics .dropdown-menu {
-    border-radius: 0;
-}
-
-.home-academics .dropdown-toggle::after {
-    border-left: 0.7em solid transparent;
-    border-right: 0.7em solid transparent;
-    border-top: 0.7em solid;
-    margin-left: 35%;
-
-    @media (max-width: 500px) {
-        margin-left: 25%;
+    
+    .dropdown-menu {
+        border-radius: 0;
+    }
+    
+    .dropdown-toggle::after {
+        border-left: 0.7em solid transparent;
+        border-right: 0.7em solid transparent;
+        border-top: 0.7em solid;
+        margin-left: 35%;
+    
+        @media (max-width: 500px) {
+            margin-left: 25%;
+        }
     }
 }
 
@@ -912,27 +918,33 @@ blockquote {
     font-size: 18px;
     padding: 4em 0 4em 0;
 
-    .container:nth-child(1n+2) {
-        /* add padding above wrapper when more than one news block */
-        padding: 3em 0 0 0;
+    .container {
+        @media (max-width: 1195px) {
+            width: auto;
+        }
+
+        &:nth-child(1n+2) {
+            // add padding above wrapper when more than one news block
+            padding: 3em 0 0 0;
+        }
+    }
+
+    header {
+        text-align: center;
+        color: #900;
+    }
+    
+    h2 {
+        margin-bottom: 0.611em;
+        font-size: 2.667em;
+        font-weight: 200;
+        letter-spacing: 1px;
+        text-transform: none;
     }
 }
 
-.home-news header {
-    text-align: center;
-    color: #900;
-}
 
-.home-news h2 {
-    margin-bottom: 0.611em;
-    font-size: 2.667em;
-    font-weight: 200;
-    letter-spacing: 1px;
-    text-transform: none;
-}
-
-
-/* Image Navigation overrides for News Block */
+// Image Navigation overrides for News Block
 
 .img-nav--homepage-news__link {
     margin-right: 3px;
@@ -999,11 +1011,7 @@ blockquote {
     text-transform: uppercase;
 }
 
-@media (max-width: 1195px) {
-    .home-news .container {
-        width: auto;
-    }
-}
+
 
 @media (max-width: 995px) {
     .news-block {
@@ -1332,14 +1340,26 @@ a:hover.home-events--calendar__event {
 
 #About-Checkerboard .checkerboard-block:nth-child(1n+0) {
     -webkit-flex-direction: row;
-    /* Safari 6.1+ */
+    // Safari 6.1+
     flex-direction: row;
+
+    @media (max-width: 650px) {
+        -webkit-flex-direction: column;
+        // Safari 6.1+
+        flex-direction: column;
+    }
 }
 
 #About-Checkerboard .checkerboard-block:nth-child(2n+0) {
     -webkit-flex-direction: row-reverse;
-    /* Safari 6.1+ */
+    // Safari 6.1+
     flex-direction: row-reverse;
+
+    @media (max-width: 650px) {
+        -webkit-flex-direction: column;
+        // Safari 6.1+
+        flex-direction: column;
+    }
 }
 
 #About-Checkerboard .checkerboard-block:nth-child(2n+1) {
@@ -1356,19 +1376,6 @@ a:hover.home-events--calendar__event {
 
 #About-Checkerboard .checkerboard-block:nth-child(3n+2) ul li {
     border-top: 1px solid #999999;
-}
-
-@media (max-width: 650px) {
-    #About-Checkerboard .checkerboard-block:nth-child(2n+0) {
-        -webkit-flex-direction: column;
-        /* Safari 6.1+ */
-        flex-direction: column;
-    }
-    #About-Checkerboard .checkerboard-block:nth-child(1n+0) {
-        -webkit-flex-direction: column;
-        /* Safari 6.1+ */
-        flex-direction: column;
-    }
 }
 
 @media (max-width: 1200px) {
@@ -1487,121 +1494,121 @@ a:hover.home-events--calendar__event {
 }
 
 .admissions-header {
-    /* HEADER LINKS TO OTHER PAGES */
+    // HEADER LINKS TO OTHER PAGES
     padding: 0 0 4em 0;
-}
 
-.admissions-header .container {
-    display: -webkit-box;
-    /* OLD - iOS 6-, Safari 3.1-6, BB7 */
-    display: -ms-flexbox;
-    /* TWEENER - IE 10 */
-    display: -webkit-flex;
-    /* NEW - Safari 6.1+. iOS 7.1+, BB10 */
-    display: flex;
-    /* NEW, Spec - Firefox, Chrome, Opera */
-    -webkit-flex-flow: row nowrap;
-    /* Safari 6.1+ */
-    flex-flow: row nowrap;
-    -webkit-justify-content: space-around;
-    justify-content: space-around;
-}
-
-.admissions-header .container a:hover {
-    transition: all 0.1s linear;
-    opacity: .9;
-}
-
-.admissions-header .container a:hover h3 {
-    background-color: #0e122b;
-    transition: all 0.1s linear;
-}
-
-.admissions-header--nav {
-    -webkit-flex: 1 1 0;
-    /* Safari 6.1+ */
-    -ms-flex: 1 1 0;
-    /* IE 10 */
-    flex: 1 1 0;
-    position: relative;
-    background-color: #000;
-
-    img {
-        height: auto;
-        width: 100%
-    }
+    .container {
+        display: -webkit-box;
+        // OLD - iOS 6-, Safari 3.1-6, BB7
+        display: -ms-flexbox;
+        // TWEENER - IE 10
+        display: -webkit-flex;
+        // NEW - Safari 6.1+. iOS 7.1+, BB10
+        display: flex;
+        // NEW, Spec - Firefox, Chrome, Opera
+        -webkit-flex-flow: row nowrap;
+        // Safari 6.1+
+        flex-flow: row nowrap;
+        -webkit-justify-content: space-around;
+        justify-content: space-around;
     
-    h3 {
-        position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        margin: auto;
-        height: 2em;
-        color: #fff;
-        font-size: 1.5em;
-        text-align: center;
-        text-transform: uppercase;
-        padding: 0;
-        line-height: 2em;
+        a:hover {
+            transition: all 0.1s linear;
+            opacity: .9;
+    
+            h3 {
+                background-color: #0e122b;
+                transition: all 0.1s linear;
+            }
+        }
+    }
+
+    &--nav {
+        -webkit-flex: 1 1 0;
+        // Safari 6.1+
+        -ms-flex: 1 1 0;
+        // IE 10
+        flex: 1 1 0;
+        position: relative;
+        background-color: #000;
+
+        img {
+            height: auto;
+            width: 100%
+        }
+
+        h3 {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            margin: auto;
+            height: 2em;
+            color: #fff;
+            font-size: 1.5em;
+            text-align: center;
+            text-transform: uppercase;
+            padding: 0;
+            line-height: 2em;
+        }
     }
 }
 
 .admissions-footer {
-    /* FOOTER LINKS TO OTHER PAGES */
+    // FOOTER LINKS TO OTHER PAGES
     background-color: #100f21;
     padding: 2em 0;
 
     .container a:hover {
         transition: all 0.1s linear;
         opacity: .8;
+
+        .admissions-footer--nav h3 {
+            background-color: rgba(14, 18, 43, 1);
+        }
     }
-}
 
-.admissions-footer__title {
-    position: absolute;
-    top: -20%;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    margin: auto;
-    height: 1em;
-}
-
-.admissions-footer--nav {
-    -webkit-flex: 1 1 0;
-    /* Safari 6.1+ */
-    -ms-flex: 1 1 0;
-    /* IE 10 */
-    flex: 1 1 0;
-    position: relative;
-    background-color: rgba(0, 0, 0, .8);
-
-    img {
-        opacity: .5;
-        height: auto;
-        width: 100%
+    &__title {
+        position: absolute;
+        top: -20%;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        margin: auto;
+        height: 1em;
     }
-    
-    h3 {
-        color: #fff;
-        font-size: 1.5em;
-        text-align: center;
-        text-transform: uppercase;
-        padding: 1em 0;
+
+    &--nav {
+        -webkit-flex: 1 1 0;
+        /* Safari 6.1+ */
+        -ms-flex: 1 1 0;
+        /* IE 10 */
+        flex: 1 1 0;
+        position: relative;
+        background-color: rgba(0, 0, 0, .8);
+
+        img {
+            opacity: .5;
+            height: auto;
+            width: 100%
+        }
+
+        h3 {
+            color: #fff;
+            font-size: 1.5em;
+            text-align: center;
+            text-transform: uppercase;
+            padding: 1em 0;
+        }
     }
-}
 
-.admissions-footer__sub {
-    display: block;
-    font-size: 0.65em;
-    text-transform: none;
-    padding-top: 0.25em;
-}
-
-.admissions-footer .container a:hover .admissions-footer--nav h3 {
-    background-color: rgba(14, 18, 43, 1);
+    &__sub {
+        display: block;
+        font-size: 0.65em;
+        text-transform: none;
+        padding-top: 0.25em;
+    }
 }
 
 @media (max-width: 768px) {
@@ -1776,50 +1783,49 @@ img.fiveschools {
     border: 0;
     font-size: 16px;
     background-color: #fff;
-}
 
-.admin td a:hover {
-    color: #000;
-    text-decoration: underline;
-}
-
-.admin th a:hover {
-    text-decoration: underline;
-}
-
-.admin th.header {
-    background-color: #456f76;
-    color: #fff;
-    text-transform: uppercase;
-    font-size: 18px;
-    font-weight: 500;
-    padding-top: 15px;
-    padding-left: 15px;
-
-    a {
-        color: #fff;
+    td a:hover {
+        color: #000;
+        text-decoration: underline;
     }
-}
 
+    th a:hover {
+        text-decoration: underline;
+    }
 
-.admin th.minors {
-    background-color: #424242;
-    color: #fff;
-    text-transform: uppercase;
-    font-size: 18px;
-    font-weight: 500;
-    padding-top: 15px;
-    padding-left: 15px;
-}
+    th.header {
+        background-color: #456f76;
+        color: #fff;
+        text-transform: uppercase;
+        font-size: 18px;
+        font-weight: 500;
+        padding-top: 15px;
+        padding-left: 15px;
 
-.admin th.profdev {
-    background-color: #333366;
-    color: #fff;
-    text-transform: uppercase;
-    font-size: 18px;
-    font-weight: 500;
-    padding-top: 15px;
-    padding-left: 15px;
+        a {
+            color: #fff;
+        }
+    }
+
+    th.minors {
+        background-color: #424242;
+        color: #fff;
+        text-transform: uppercase;
+        font-size: 18px;
+        font-weight: 500;
+        padding-top: 15px;
+        padding-left: 15px;
+    }
+
+    th.profdev {
+        background-color: #333366;
+        color: #fff;
+        text-transform: uppercase;
+        font-size: 18px;
+        font-weight: 500;
+        padding-top: 15px;
+        padding-left: 15px;
+    }
 }
 
 thead th {
@@ -1867,7 +1873,6 @@ a.minilink {
     float: right;
     color: #fff;
 }
-
 
 /*------------------------------------*\
   #background textures from Pattern Lab
