@@ -442,17 +442,23 @@ footer .r-scer-social {
         margin-left: 0;
         text-align: left;
     }
+    footer .column {
+        width: 21%;
+        margin-left: 30px !important;
+    }
+
     footer .r-scer-bottom-bit {
         margin-left: 1.6em;
         margin-top: 0;
         line-height: 2.4em;
         width: 70%
     }
-    .r-scer-flag img {
-        width: 70%;
-    }
-    footer .r-scer-flag {
-        width: 22%;
+    footer .r-scer-bottom-bit {
+        margin-top: 20px;
+
+        a {
+            font-size: 14px;
+        }
     }
 
     footer .region-footer-second {
@@ -468,23 +474,17 @@ footer .r-scer-social {
             font-size: 16px;
             padding: 0;
         }
-    }
 
-    footer .r-scer-bottom-bit {
-        margin-top: 20px;
-
-        a {
-            font-size: 14px;
+        .r-scer-bottom-bit {
+            margin-left: 30px;
         }
     }
 
-    footer .column {
-        width: 21%;
-        margin-left: 30px !important;
+    .r-scer-flag img.flag-img {
+        width: 70%;
     }
-
-    footer .region-footer-second .r-scer-bottom-bit {
-        margin-left: 30px;
+    footer .r-scer-flag {
+        width: 22%;
     }
 }
 
@@ -505,6 +505,7 @@ footer .r-scer-social {
         padding-top: 20px;
         margin-left: 0 !important;
     }
+
     footer .r-scer-flag {
         width: 100% !important;
         height: auto;
@@ -512,7 +513,7 @@ footer .r-scer-social {
         padding-top: 20px;
         padding-bottom: 20px;
 
-        img {
+        img.flag-img {
             width: 100px;
             float: none;
         }
@@ -632,9 +633,6 @@ footer .region-footer-second {
         margin-bottom: 7px;
     }
 }
-
-
-
 
 /* --------End Vibrant Footer ---------*/
 
