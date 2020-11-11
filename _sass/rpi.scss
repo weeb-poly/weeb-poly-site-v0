@@ -496,6 +496,10 @@ footer .r-scer-social {
 }
 
 @media only screen and (max-width: 775px) {
+    .r-scer-flag > img {
+        margin-top: 20px;
+    }
+
     footer .column {
         width: 100%;
         float: none;
@@ -529,9 +533,10 @@ footer .r-scer-social {
     footer .region-footer-second .column {
         text-align: center;
     }
-    .r-scer-flag > img {
-        margin-top: 20px;
-    }
+}
+
+
+@media only screen and (max-width: 775px) {
     .column.three {
         margin-bottom: 30px;
     }
